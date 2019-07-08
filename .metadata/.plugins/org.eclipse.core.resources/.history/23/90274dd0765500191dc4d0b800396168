@@ -1,0 +1,59 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import java.text.NumberFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
+public class MortgageCalculator1Controller 
+{
+	private int loanyears= 25; //25 by default
+
+    @FXML
+    private TextField customyearTextField;
+
+    @FXML
+    private TextField interestRateTextField;
+
+    @FXML
+    private Label loanDurationLabel;
+
+    @FXML
+    private TextField loanAmountTextField;
+
+    @FXML
+    private Slider loanDurationSlider;
+
+    @FXML
+    private TextField downPaymentTextField;
+
+    @FXML
+    private TextField purchasePriceTextField;
+
+    @FXML
+    void calculateButtonPressed(ActionEvent event) 
+    {
+    	double loanamount=
+    }
+    public void initialize()
+    {
+    	loanDurationSlider.valueProperty().addListener
+    	(
+    		new ChangeListener<Number>()
+	    	{
+    			@Override
+	    		public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue)
+	    		{
+	    			loanyears=newValue.intValue();
+	    			loanDurationLabel.setText(""+loanyears);
+	    		}
+	    	}
+    	);	
+    }
+}

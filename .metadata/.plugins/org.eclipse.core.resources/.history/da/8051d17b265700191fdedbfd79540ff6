@@ -1,0 +1,85 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+//import java.text.NumberFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+//import java.math.RoundingMode;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
+public class MortgageCalculator1Controller 
+{
+	private int loanyears= 25; //25 by default
+
+    @FXML
+    private TextField customyearTextField;
+
+    @FXML
+    private TextField interestRateTextField;
+
+    @FXML
+    private Label loanDurationLabel;
+
+    @FXML
+    private TextField loanAmountTextField;
+
+    @FXML
+    private Slider loanDurationSlider;
+
+    @FXML
+    private TextField downPaymentTextField;
+
+    @FXML
+    private TextField purchasePriceTextField;
+
+    @FXML
+    void calculateButtonPressed(ActionEvent event) 
+    {
+    	BigDecimal purchaseprice=new BigDecimal(purchasePriceTextField.getText());
+    //	System.out.println("this is inputted purchase price= "+purchaseprice);
+    	BigDecimal downpayment=new BigDecimal(downPaymentTextField.getText());
+    	//System.out.println("this is inputted downpayment= "+downpayment);
+    	BigDecimal loanamount= purchaseprice.subtract(downpayment);
+    //	System.out.println("this is loan amount which is purchaseprice-downpayment= "+loanamount);
+    	loanAmountTextField.setText(""+loanamount);
+    	
+    	BigDecimal interest=new BigDecimal(interestRateTextField.getText());
+    //	System.out.println("this is the interest= "+interest);
+    	BigDecimal twelve= new BigDecimal(12*100);
+    	//System.out.println("this should be a variation of 12= "+twelve);
+    	BigDecimal one=new BigDecimal(1);
+    //	System.out.println("this should be one= "+one);
+    	BigDecimal monthlyinterest= interest.divide(twelve,8,RoundingMode.HALF_UP);
+    //	System.out.println("to find monthly interest we divide by 12= "+monthlyinterest);
+    	BigDecimal oneplusinterest=monthlyinterest.add(one);
+    //	System.out.println("we did one plus interest= "+oneplusinterest);
+    	BigDecimal numerator=monthlyinterest.multiply(oneplusinterest.pow(loanyears*12));
+    //	System.out.println("this is the numerator of the formula= "+numerator);
+    	BigDecimal denominator=(oneplusinterest.pow(loanyears*12)).subtract(one);
+    //	System.out.println("this is the denominator of the formula= "+denominator);
+    	BigDecimal monthlypayment=loanamount.multiply(numerator.divide(denominator,8,RoundingMode.HALF_UP));
+    	//System.out.println("this is the final answer= "+monthlypayment);
+    	customyearTextField.setText(""+monthlypayment);
+    }
+    public void initialize()
+    {
+    	loanDurationSlider.valueProperty().addListener
+    	(
+    		new ChangeListener<Number>()
+	    	{
+    			@Override
+	    		public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue)
+	    		{
+	    			loanyears=newValue.intValue();
+	    			loanDurationLabel.setText(""+loanyears);
+	    		}
+	    	}
+    	);	
+    }
+}

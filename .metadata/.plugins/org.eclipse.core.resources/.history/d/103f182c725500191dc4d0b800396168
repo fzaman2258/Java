@@ -1,0 +1,41 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
+public class MortgageCalculator1Controller 
+{
+
+    @FXML
+    private TextField customyearTextField;
+
+    @FXML
+    private TextField interestRateTextField;
+
+    @FXML
+    private Label loanDurationLabel;
+
+    @FXML
+    private TextField loanAmountTextField;
+
+    @FXML
+    private Slider loanDurationSlider;
+
+    @FXML
+    private TextField downPaymentTextField;
+
+    @FXML
+    private TextField purchasePriceTextField;
+
+    @FXML
+    void calculateButtonPressed(ActionEvent event) 
+    {
+
+    }
+
+}

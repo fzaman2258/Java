@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactsController">
+   <children>
+      <Label layoutX="80.0" layoutY="448.0" text="First Name" />
+      <Label layoutX="431.0" layoutY="448.0" text="Last Name" />
+      <Label layoutX="66.0" layoutY="504.0" text="Phone Number" />
+      <Label layoutX="448.0" layoutY="504.0" text="Email" />
+      <TextField fx:id="newFirstnameTextField" layoutX="194.0" layoutY="443.0" />
+      <TextField fx:id="newLastNameTextField" layoutX="508.0" layoutY="443.0" />
+      <TextField fx:id="newPhoneNumberTextField" layoutX="194.0" layoutY="499.0" />
+      <TextField fx:id="newEmailTextField" layoutX="508.0" layoutY="499.0" />
+      <ListView fx:id="contactListView" layoutX="1.0" layoutY="-1.0" prefHeight="335.0" prefWidth="364.0" />
+      <TextField fx:id="FirstNameTextField" editable="false" focusTraversable="false" layoutX="508.0" layoutY="56.0" />
+      <TextField fx:id="LastNameTextField" editable="false" focusTraversable="false" layoutX="508.0" layoutY="111.0" />
+      <TextField fx:id="PhoneNumberTextField" editable="false" focusTraversable="false" layoutX="508.0" layoutY="162.0" />
+      <TextField fx:id="EmailTextField" editable="false" focusTraversable="false" layoutX="508.0" layoutY="216.0" />
+      <Label layoutX="412.0" layoutY="61.0" text="First Name" />
+      <Label layoutX="413.0" layoutY="116.0" text="Last Name" />
+      <Label layoutX="402.0" layoutY="167.0" text="Phone Number" />
+      <Label layoutX="430.0" layoutY="221.0" text="Email" />
+      <Button fx:id="modifyButton" disable="true" layoutX="133.0" layoutY="370.0" mnemonicParsing="false" onAction="#modifyContactButtonPressed" text="Modify Contact" />
+      <Button fx:id="deleteButton" disable="true" layoutX="483.0" layoutY="370.0" mnemonicParsing="false" onAction="#deleteContactButtonPressed" text="Delete Contact" />
+      <Button layoutX="308.0" layoutY="370.0" mnemonicParsing="false" onAction="#newContactButtonPressed" text="New Contact" />
+      <Label layoutX="55.0" layoutY="552.0" text="PathWay to Image" />
+      <TextField fx:id="imagePathWayTextField" layoutX="194.0" layoutY="547.0" />
+   </children>
+</AnchorPane>

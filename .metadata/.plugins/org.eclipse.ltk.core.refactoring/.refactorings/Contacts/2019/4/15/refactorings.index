@@ -1,0 +1,6 @@
+1554601175918	Rename type 'Main'
+1554607443991	Move compilation unit
+1554609033591	Encapsulate field 'FirstName'
+1554609038249	Encapsulate field 'LastName'
+1554609046076	Encapsulate field 'email'
+1554609049931	Encapsulate field 'phonenumber'
